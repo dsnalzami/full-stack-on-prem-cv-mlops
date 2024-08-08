@@ -3,8 +3,8 @@ version: '3.8'
 services:
     # dev workspace
     jupyter:
-        # platform: linux/x86_64 # for others (mostly) or can just remove this line
-        platform: linux/arm64 # for Mac M1
+        platform: linux/x86_64 # for others (mostly) or can just remove this line
+        # platform: linux/arm64 # for Mac M1
         container_name: jupyter
         build:
             context: ./services/jupyter
@@ -52,7 +52,7 @@ services:
 
     # ML platform / experiment tracking
     mlflow:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: mlflow
         restart: always
         build:
@@ -76,7 +76,7 @@ services:
 
     # orchestrator
     prefect:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: prefect
         restart: always
         build:
@@ -109,7 +109,7 @@ services:
 
     # worker / agent / automation
     prefect_worker:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: prefect_worker
         build:
             context: ./services/prefect_worker
@@ -132,7 +132,7 @@ services:
 
     # model deployment / model service
     dl_service:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: dl_service
         restart: always
         build:
@@ -161,7 +161,7 @@ services:
 
     # ui for model service
     web_ui:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: web_ui
         build:
             context: ./services/web_ui
@@ -184,7 +184,7 @@ services:
 
     # reverse proxy
     nginx:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: nginx
         restart: always
         build:
@@ -200,7 +200,7 @@ services:
 
     # model monitoring
     evidently:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: evidently
         build: 
             context: ./services/evidently
@@ -218,7 +218,7 @@ services:
 
     # overall monitoring & dashboards
     grafana:
-        platform: linux/arm64
+        platform: linux/x86_64
         image: grafana/grafana-oss:latest
         container_name: grafana
         restart: unless-stopped
@@ -236,7 +236,7 @@ services:
 
     # time-series database
     prometheus:
-        platform: linux/arm64
+        platform: linux/x86_64
         image: prom/prometheus:latest
         container_name: prometheus
         restart: unless-stopped
@@ -251,7 +251,7 @@ services:
     
     # host machine's metrics exporter for prometheus
     node_exporter:
-        platform: linux/arm64
+        platform: linux/x86_64
         image: quay.io/prometheus/node-exporter:v1.5.0
         container_name: node_exporter
         restart: unless-stopped
@@ -285,7 +285,7 @@ services:
 
     # sql database
     postgres:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: postgres
         image: postgres:15.3
         restart: always
@@ -306,7 +306,7 @@ services:
         
     # ui for database
     pgadmin:
-        platform: linux/arm64
+        platform: linux/x86_64
         container_name: pgadmin
         image: dpage/pgadmin4
         restart: always
