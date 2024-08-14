@@ -86,7 +86,9 @@ WORKDIR /home/$NB_USER
 
 # Install conda
 RUN curl -O https://repo.anaconda.com/miniconda/Miniconda3-py38_23.3.1-0-Linux-${ARCH}.sh && \
+    chmod +x Miniconda3-py38_23.3.1-0-Linux-${ARCH}.sh && \
     bash Miniconda3-py38_23.3.1-0-Linux-${ARCH}.sh -f -b -p $CONDA_DIR
+
 
 # Put conda in path 
 # PIP_DEFAULT_TIMEOUT=100 to solve ReadTimeoutError when pip install large packages
